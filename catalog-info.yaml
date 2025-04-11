@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: 5spring-gitops
+  description: This is GitOps manifest for 5spring   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: rhtap/gitops=5spring
+    backstage.io/kubernetes-id: 5spring 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: 5spring
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:5spring
